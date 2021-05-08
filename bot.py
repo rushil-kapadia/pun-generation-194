@@ -47,8 +47,8 @@ class HippoBot(Bot):
         sleep(0.5)
 
     def scrape_data(self, query: str) -> list:
-        if path.exists(query+"sentences.pickle"):
-            with open(query + 'sentences.pickle', 'rb') as f:
+        if path.exists(query + '_sentences.pickle'):
+            with open(query + '_sentences.pickle', 'rb') as f:
                 sentences = pickle.load(f)
         else:
             search_box = self.driver.find_element_by_xpath('//*[@id="sentenceword"]')
@@ -62,7 +62,7 @@ class HippoBot(Bot):
             sentences = [sentence for sentence in one + two]
             sentences = [sentence for sentence in sentences if len(sentence) > len(query) and query in sentence]
             
-            with open(query + 'sentences.pickle', 'wb') as f:
+            with open(query + '_sentences.pickle', 'wb') as f:
                 pickle.dump(sentences, f)
 
         return sentences
@@ -84,8 +84,8 @@ class RhymeBot(Bot):
         sleep(0.5)
 
     def scrape_data(self, query: str) -> list:
-        if path.exists(query + 'homophones.pickle'):
-            with open(query + 'homophones.pickle', 'rb') as f:
+        if path.exists(query + '_homophones.pickle'):
+            with open(query + '_homophones.pickle', 'rb') as f:
                 homophones = pickle.load(f)
         else:
             search_box = self.driver.find_element_by_xpath('//*[@name="Word"]')
@@ -97,7 +97,7 @@ class RhymeBot(Bot):
             two = [e.text for e in self.driver.find_elements_by_xpath('//*[@class="r"]') if int(e.value_of_css_property('font-weight')) >= 700]
             homophones = one + two
 
-            with open(query + 'homophones.pickle', 'wb') as f:
+            with open(query + '_homophones.pickle', 'wb') as f:
                 pickle.dump(homophones, f)
 
         return homophones
