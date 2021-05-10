@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pun Game</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <h1>Create a pun</h1>
+    <form method="POST">
+
+      <div class="form__fieldset">
+        <label for="amount" class="form__label">Word to make pun from:</label>
+        <input type="text" name="amount" id="amount" class="form__input" />
+      </div>
+
+    </br>
+
+      <div class="form__fieldset">
+        <input
+          class="form__submit form__input"
+          type="submit"
+          value="Generate Pun"
+        />
+      </div>
+    </form>
+  </br>
+  </br>
+    <h3> {{entries[1]}} </h3>
+    <b class="pun"> {{entries[0]}} </b>
+  </body>
+</html>

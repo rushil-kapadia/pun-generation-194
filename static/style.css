@@ -1,0 +1,30 @@
+html {
+  font-size: 17px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pun {
+  font-size:12;
+  font-weight:normal;
+}
+
+
+.form__submit {
+  padding: 8px 16px;
+  background-color: unset;
+  border: 2px solid #1c2023;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+}
+
+.form__submit:hover {
+  background-color: #1c2023;
+  color: white;
+}
