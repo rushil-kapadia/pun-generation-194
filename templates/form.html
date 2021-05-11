@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <h1>Create a pun</h1>
+    <h1>CS PUN94</h1>
     <form method="POST">
 
       <div class="form__fieldset">
-        <label for="amount" class="form__label">Word to make pun from:</label>
+        <label for="amount" class="form__label">Word to make puns from:</label>
         <input type="text" name="amount" id="amount" class="form__input" />
       </div>
 
@@ -20,13 +20,19 @@
         <input
           class="form__submit form__input"
           type="submit"
-          value="Generate Pun"
+          value="Generate Puns"
         />
       </div>
     </form>
   </br>
   </br>
-    <h3> {{entries[1]}} </h3>
-    <b class="pun"> {{entries[0]}} </b>
+    <h3> {{entries[3]}} </h3>
+    <b class="pun"> 1. {{entries[0]}} </b>
+  </br>
+  </br>
+    <b class="pun"> 2. {{entries[1]}} </b>
+  </br>
+  </br>
+    <b class="pun"> 3. {{entries[2]}} </b>
   </body>
 </html>

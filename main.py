@@ -4,10 +4,7 @@ from model import get_similar, get_context, edit_plurality, score_pun
 
 import spacy
 
-def pun_from_word(word):
-    return "I met a dog who knew that I was a" + word
-
-def generate_puns(query):
+def pun_from_word(query):
     hippo = HippoBot()
     sentences = hippo.scrape_data(query)
     sentences = hippo.sort_data(query, sentences)
@@ -46,15 +43,3 @@ def generate_puns(query):
 
     variety = max([[get_variety(puns, i, 3), i] for i in [2, 3, 4]], key=lambda x: len(x[0][0]) + x[0][1] + 2 / x[1])
     return [pun[0] for pun in variety[0][0]]
-
-
-# query = ''
-
-# puns = generate_puns(query)
-
-# print('---')
-# print('query:', query)
-# print('---')
-# for pun in puns:
-#     print(pun)
-# print('---')

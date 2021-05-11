@@ -105,7 +105,7 @@ class RhymeBot(Bot):
     def sort_data(self, query: str, data: list) -> list:
         query_pos, query_dm = pos_tag([query])[0][1], doublemetaphone(query)[0]
         homophones = sorted([[homophone, levenshtein(query_dm, doublemetaphone(homophone)[0])] for homophone in data if ' ' not in homophone], key=lambda x: x[1])
-        homophones = [homophone[0] for homophone in homophones if homophone[0] not in query][:10]
+        homophones = [homophone[0] for homophone in homophones if homophone[0] not in query and query not in homophone[0]][:10]
         homophones = [homophone for homophone in homophones if pos_tag([homophone])[0][1] == query_pos] + [homophone for homophone in homophones if pos_tag([homophone])[0][1] != query_pos]
         homophones = [homophone for homophone in homophones if homophone[0] == query[0]] + [homophone for homophone in homophones if homophone[0] != query[0]]
         return homophones[:3]
